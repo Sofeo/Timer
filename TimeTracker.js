@@ -1,6 +1,5 @@
 // The buttons
 let start = document.getElementById('start');
-let stop = document.getElementById('stop');
 let reset = document.getElementById('reset');
 let timehold = document.getElementById('time');
 
@@ -8,18 +7,24 @@ let time = 0;
 let intrval;
 
 start.addEventListener("click", startTimer);
-stop.addEventListener("click", stopTimer);
 reset.addEventListener("click", resetTimer);
 
 function startTimer() {
-    interval = setInterval(function(){
+    //console.log(start.innerHTML);
+    if (start.innerHTML === 'Start') {
+        interval = setInterval(function(){
         time++;
         timehold.innerHTML = time;
-    }, 1000);
+        }, 1000);
+        start.innerHTML = 'Stop';
+    } else {
+        stopTimer();
+    }
 }
 
 function stopTimer() {
     clearInterval(interval)
+    start.innerHTML = 'Start'
 }
 
 function resetTimer() {
