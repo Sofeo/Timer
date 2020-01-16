@@ -14,8 +14,8 @@ function startTimer() {
     if (start.innerHTML === 'Start') {
         interval = setInterval(function(){
         time++;
-        timehold.innerHTML = time;
-        }, 1000);
+        timehold.innerHTML = time / 100;
+        }, 10);
         start.innerHTML = 'Stop';
     } else {
         stopTimer();
