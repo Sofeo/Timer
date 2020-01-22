@@ -1,4 +1,4 @@
-// The buttons
+// The buttons and holders
 let start = document.getElementById('start');
 let reset = document.getElementById('reset');
 let timehold = document.getElementById('time');
@@ -8,7 +8,6 @@ let laphold = document.getElementById('lapHold');
 let time = 0;
 let intrval;
 
-document.getElementById('lap').addEventListener("click", goLap);
 start.addEventListener("click", startTimer);
 reset.addEventListener("click", resetTimer);
 
@@ -20,6 +19,7 @@ function startTimer() {
         timehold.innerHTML = time / 100;
         }, 10);
         start.innerHTML = 'Stop';
+        reset.innerHTML = 'Lap';
     } else {
         stopTimer();
     }
@@ -28,13 +28,20 @@ function startTimer() {
 function stopTimer() {
     clearInterval(interval)
     start.innerHTML = 'Start'
+    reset.innerHTML = 'Reset'
 }
 
 function resetTimer() {
-    stopTimer();
-    time = 0;
-    timehold.innerHTML = time;
-    laphold.innerHTML = "";
+    console.log(reset.innerHTML)
+    if (reset.innerHTML === 'Reset') {
+        stopTimer();
+        time = 0;
+        timehold.innerHTML = time;
+        laphold.innerHTML = "";
+    } else {
+        goLap();
+    }
+    
 }
 
 let lastLap = 0;
