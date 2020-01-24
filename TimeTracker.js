@@ -5,7 +5,8 @@ let timehold = document.getElementById('time');
 let laphold = document.getElementById('lapHold');
 
 
-let time = 0;
+let timeSek = 0;
+let timeMin = 0;
 let intrval;
 
 start.addEventListener("click", startTimer);
@@ -15,8 +16,23 @@ function startTimer() {
     //console.log(start.innerHTML);
     if (start.innerHTML === 'Start') {
         interval = setInterval(function(){
-        time++;
-        timehold.innerHTML = time / 100;
+            // 100 is 1 second
+            // Sek goes to min
+            if (timeSek > 6000) {
+                timeSek = 0;
+                timeMin++;
+            }
+
+            if (timeMin < 9 && timeSek < 1000) {
+                timehold.innerHTML = '0' + timeMin + ':0' + timeSek / 100;
+            } else if (timeMin > 9 && timeSek < 1000) {
+                timehold.innerHTML = timeMin + ':0' + timeSek / 100;
+            } else if (timeMin < 9 && timeSek > 1000) {
+                timehold.innerHTML = '0' + timeMin + ':' + timeSek / 100;
+            } else {
+                timehold.innerHTML = timeMin + ':' + timeSek / 100;
+            }
+            timeSek++;
         }, 10);
         start.innerHTML = 'Stop';
         reset.innerHTML = 'Lap';
@@ -35,8 +51,8 @@ function resetTimer() {
     console.log(reset.innerHTML)
     if (reset.innerHTML === 'Reset') {
         stopTimer();
-        time = 0;
-        timehold.innerHTML = time;
+        timeSek = 0;
+        timehold.innerHTML = '00:00.00';
         laphold.innerHTML = "";
     } else {
         goLap();
@@ -49,8 +65,8 @@ function goLap() {
     let p = document.createElement("p");
     let text;
 
-    text = document.createTextNode((time / 100) - lastLap);
-    lastLap = time / 100;
+    text = document.createTextNode((timeSek / 100) - lastLap);
+    lastLap = timeSek / 100;
   
     p.appendChild(text);
     laphold.prepend(p);
