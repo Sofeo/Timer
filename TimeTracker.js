@@ -4,7 +4,6 @@ let reset = document.getElementById('reset');
 let timehold = document.getElementById('time');
 let laphold = document.getElementById('lapHold');
 
-
 let timeSek = 0;
 let timeMin = 0;
 let intrval;
@@ -23,15 +22,8 @@ function startTimer() {
                 timeMin++;
             }
 
-            if (timeMin < 9 && timeSek < 1000) {
-                timehold.innerHTML = '0' + timeMin + ':0' + timeSek / 100;
-            } else if (timeMin > 9 && timeSek < 1000) {
-                timehold.innerHTML = timeMin + ':0' + timeSek / 100;
-            } else if (timeMin < 9 && timeSek > 1000) {
-                timehold.innerHTML = '0' + timeMin + ':' + timeSek / 100;
-            } else {
-                timehold.innerHTML = timeMin + ':' + timeSek / 100;
-            }
+            timehold.innerHTML = zeroCheck(timeMin) + ':' + zeroCheck(timeSek / 100);
+
             timeSek++;
         }, 10);
         start.innerHTML = 'Stop';
@@ -60,14 +52,22 @@ function resetTimer() {
     
 }
 
-let lastLap = 0;
+let lastLapSek = 0;
+let lastLapMin = 0;
 function goLap() {
     let p = document.createElement("p");
     let text;
 
-    text = document.createTextNode((timeSek / 100) - lastLap);
-    lastLap = timeSek / 100;
+    text = document.createTextNode(zeroCheck(Number((timeMin - lastLapMin).toFixed(2))) + ':' + zeroCheck(Number((timeSek / 100) - lastLapSek).toFixed(2)));
+
+    lastLapSek = timeSek / 100;
+    lastLapMin = timeMin;
   
     p.appendChild(text);
     laphold.prepend(p);
+}
+
+// Checks if it needs a zero infront of the number
+function zeroCheck(value) {
+    return value < 10 ? ('0' + value) : value;
 }
