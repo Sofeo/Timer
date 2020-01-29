@@ -44,27 +44,43 @@ function resetTimer() {
     if (reset.innerHTML === 'Reset') {
         stopTimer();
         timeSek = 0;
+        timeMin = 0;
         timehold.innerHTML = '00:00.00';
         laphold.innerHTML = "";
+        lapCount = 1;
+        lastLapSek = 0;
+        lastLapMin = 0;
     } else {
         goLap();
     }
     
 }
 
+let lapCount = 1;
 let lastLapSek = 0;
 let lastLapMin = 0;
 function goLap() {
     let p = document.createElement("p");
-    let text;
-
-    text = document.createTextNode(zeroCheck(Number((timeMin - lastLapMin).toFixed(2))) + ':' + zeroCheck(Number((timeSek / 100) - lastLapSek).toFixed(2)));
-
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+    let div = document.createElement("div");
+    
+    let textLap = document.createTextNode(zeroCheck(Number((timeMin - lastLapMin).toFixed(2))) + ':' + zeroCheck(Number((timeSek / 100) - lastLapSek).toFixed(2)));;
+    let textTime = document.createTextNode(zeroCheck(timeMin) + ':' + zeroCheck(timeSek / 100));
+    let textCount = document.createTextNode('Lap ' + lapCount);
+    
     lastLapSek = timeSek / 100;
     lastLapMin = timeMin;
-  
-    p.appendChild(text);
-    laphold.prepend(p);
+    
+    p.appendChild(textLap);
+    p2.appendChild(textTime);
+    p3.appendChild(textCount);
+    div.appendChild(p3);
+    div.appendChild(p);
+    div.appendChild(p2);
+    laphold.prepend(div);
+
+    lapCount++;
 }
 
 // Checks if it needs a zero infront of the number
