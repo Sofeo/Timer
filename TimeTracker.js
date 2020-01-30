@@ -75,11 +75,15 @@ function goLap() {
     p.appendChild(textLap);
     p2.appendChild(textTime);
     p3.appendChild(textCount);
+    p.classList.add('lapTime');
+    p2.classList.add('timeTrack');
+    p3.classList.add('lapCount');
     div.appendChild(p3);
     div.appendChild(p);
     div.appendChild(p2);
+    div.classList.add('lapBox');
     laphold.prepend(div);
-
+    
     lapCount++;
 }
 
