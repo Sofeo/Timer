@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+    background-color: aqua;
+}
+
+#time {
+    background-color: burlywood;
+}
+
+.buttons {
+    border-radius: 10px;
+}
+
+.timeBox {
+    display: flex;
+    justify-content: space-around;
+}

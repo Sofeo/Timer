@@ -64,6 +64,7 @@ function goLap() {
     let p2 = document.createElement("p");
     let p3 = document.createElement("p");
     let div = document.createElement("div");
+    let div2 = document.createElement("div");
     
     let textLap = document.createTextNode(zeroCheck(Number((timeMin - lastLapMin).toFixed(2))) + ':' + zeroCheck(Number((timeSek / 100) - lastLapSek).toFixed(2)));;
     let textTime = document.createTextNode(zeroCheck(timeMin) + ':' + zeroCheck(timeSek / 100));
@@ -79,9 +80,11 @@ function goLap() {
     p2.classList.add('timeTrack');
     p3.classList.add('lapCount');
     div.appendChild(p3);
-    div.appendChild(p);
-    div.appendChild(p2);
+    div.appendChild(div2);
+    div2.appendChild(p);
+    div2.appendChild(p2);
     div.classList.add('lapBox');
+    div2.classList.add('timeBox');
     laphold.prepend(div);
     
     lapCount++;
