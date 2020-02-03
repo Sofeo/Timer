@@ -28,6 +28,8 @@ function startTimer() {
         }, 10);
         start.innerHTML = 'Stop';
         reset.innerHTML = 'Lap';
+        // adds padding on the sides 
+        reset.classList.add('lapPad');
     } else {
         stopTimer();
     }
@@ -37,23 +39,25 @@ function stopTimer() {
     clearInterval(interval)
     start.innerHTML = 'Start'
     reset.innerHTML = 'Reset'
+    // removes the padding on the sides
+    reset.classList.remove('lapPad');
 }
 
 function resetTimer() {
-    console.log(reset.innerHTML)
-    if (reset.innerHTML === 'Reset') {
-        stopTimer();
-        timeSek = 0;
-        timeMin = 0;
-        timehold.innerHTML = '00:00.00';
-        laphold.innerHTML = "";
-        lapCount = 1;
-        lastLapSek = 0;
-        lastLapMin = 0;
-    } else {
-        goLap();
+    if (timehold.innerHTML !== '00:00.00') {
+        if (reset.innerHTML === 'Reset') {
+            stopTimer();
+            timeSek = 0;
+            timeMin = 0;
+            timehold.innerHTML = '00:00.00';
+            laphold.innerHTML = "";
+            lapCount = 1;
+            lastLapSek = 0;
+            lastLapMin = 0;
+        } else {
+            goLap();
+        }
     }
-    
 }
 
 let lapCount = 1;

@@ -5,18 +5,53 @@ body {
 .container {
     width: 500px;
     margin: 0 auto;
-    background-color: aqua;
+    background-color: lightgray;
+}
+
+h1 {
+    width: 251px;
+    margin: 0 auto;
+    display: block;
 }
 
 #time {
-    background-color: burlywood;
+    background-color: inherit;
+    font-size: 70px;
+    border-bottom: 2px solid black;
+    padding: 0 3px;
+}
+
+.btnCont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 .buttons {
     border-radius: 10px;
+    padding: 5px;
+    margin: 0 20px;
+    border: none;
+    background-color: brown;
+    font-size: 20px;
+}
+
+.lapBox {
+    border-bottom: 2px solid black;
+}
+
+.lapPad {
+    padding: 0 14px;
+}
+
+.lapCount {
+    margin-left: 90px;
+    font-size: 20px;
 }
 
 .timeBox {
     display: flex;
     justify-content: space-around;
 }
+
