@@ -60,6 +60,7 @@ function resetTimer() {
     }
 }
 
+// TODO: laps fucks upp after a minute passes cause time sec goes back to 0 or somthing.
 let lapCount = 1;
 let lastLapSek = 0;
 let lastLapMin = 0;
