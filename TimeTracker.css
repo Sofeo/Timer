@@ -1,24 +1,26 @@
 body {
     margin: 0px;
+    background-color: #c7a671;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
 }
 
 .container {
-    width: 500px;
-    margin: 0 auto;
-    background-color: lightgray;
+    width: 90%;
+    margin-top: 30px;
 }
 
 h1 {
-    width: 251px;
+    width: 215px;
+    padding: 0 3px;
+    border-bottom: 2px solid black;
     margin: 0 auto;
-    display: block;
 }
 
 #time {
-    background-color: inherit;
-    font-size: 70px;
-    border-bottom: 2px solid black;
-    padding: 0 3px;
+    font-size: 60px;
+    padding: 0;
 }
 
 .btnCont {
@@ -37,21 +39,84 @@ h1 {
     font-size: 20px;
 }
 
-.lapBox {
-    border-bottom: 2px solid black;
-}
-
 .lapPad {
     padding: 0 14px;
 }
 
+.lapBox {
+    border-bottom: 2px solid black;
+    width: 80%;
+    margin: 0 auto;
+}
+
 .lapCount {
-    margin-left: 90px;
+    margin-left: 38px;
     font-size: 20px;
 }
 
 .timeBox {
     display: flex;
     justify-content: space-around;
+    font-size: 18px;
 }
 
+@media only screen and (min-width: 400px) {
+    body {
+        margin: 0px;
+        background-color: #c7a671;
+    }
+
+    .container {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 200px;
+
+    }
+
+    h1 {
+        width: 251px;
+        padding: 0 3px;
+        border-bottom: 2px solid black;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #time {
+        background-color: inherit;
+        font-size: 70px;
+    }
+
+    .btnCont {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .buttons {
+        border-radius: 10px;
+        padding: 5px;
+        margin: 0 20px;
+        border: none;
+        background-color: brown;
+        font-size: 20px;
+    }
+
+    .lapBox {
+        border-bottom: 2px solid black;
+    }
+
+    .lapPad {
+        padding: 0 14px;
+    }
+
+    .lapCount {
+        margin-left: 90px;
+        font-size: 20px;
+    }
+
+    .timeBox {
+        display: flex;
+        justify-content: space-around;
+    }
+}
