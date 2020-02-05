@@ -12,4 +12,4 @@ Task #1 add a timer
     * ~~having both time and laptime~~
 * ~~make seconds and minutes display~~
     * ~~like so 00:00:00~~
-* make it look nice
+* ~~make it look nice~~
